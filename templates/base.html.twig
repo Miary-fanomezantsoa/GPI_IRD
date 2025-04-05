@@ -16,6 +16,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Custom styles for this template -->
+    
 
 </head>
 <body>
@@ -93,11 +94,17 @@
                         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
+                <div class="speed-menu">
+                {% if app.user %}
+                    <a href="{{path('app_account')}}"><i data-feather="user"></i>{{app.user.firstname}}</a> 
+                {% else %}
+                    <a href="{{path('app_login')}}"><i data-feather="user"></i></a> 
+                {% endif %}
+                
+                
+                <a href=""><i data-feather="book"></i></a> 
+                </div>
+            </div>  
         </div>
     </nav>
 </header>
@@ -112,6 +119,11 @@
     </footer>
 </main>
 <script defer src="../assets/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  feather.replace()
+</script>
+
 
 </body>
 </html>
